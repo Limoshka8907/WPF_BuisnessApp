@@ -1,0 +1,65 @@
+﻿<Window x:Class="WPF_Practice2024.Auth"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Practice2024"
+        mc:Ignorable="d"
+          Title="Авторизация" Height="450" Width="350"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="#212121" Cursor="">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="4*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Авторизация" Foreground="White" FontSize="24" FontWeight="Bold" Margin="0,20,0,10"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="E-mail:" Foreground="White"></Label>
+            <TextBox  x:Name="emailTextBox" Width="250" Margin="0,10" Height="40" Padding="10" 
+                     VerticalContentAlignment="Center" Background="Transparent" BorderBrush="#FF676767" Foreground="White"/>
+            <Label Content="Пароль:" Foreground="White"></Label>
+            <PasswordBox x:Name="passwordBox" Width="250" Margin="0,10" Height="40" Padding="10" VerticalContentAlignment="Center"
+                         Background="Transparent" BorderBrush="#FF676767" Foreground="White" />
+            <Button x:Name="registerButton" Content="Войти" Width="250" Height="40" Margin="0,20,0,0"
+                    Background="#FF6200EA" Foreground="White" >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#FF6200EA"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid>
+                                        <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <Border x:Name="highlight" Background="White" CornerRadius="20" Height="4" VerticalAlignment="Bottom" Opacity="0"/>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="#FF3700B3"/>
+                                            <Setter TargetName="highlight" Property="Opacity" Value="1"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="#FFBB86FC"/>
+                                            <Setter TargetName="highlight" Property="Opacity" Value="0"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Label Content="Нет аккаунта?" Foreground="White" FontFamily="Maiandra GD" Margin="0,10"></Label>
+        </StackPanel>
+    </Grid>
+</Window>

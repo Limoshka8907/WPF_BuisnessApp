@@ -67,6 +67,7 @@ namespace WPF_Practice2024.Models
         public ICommand ShowHomeViewCommand { get; }
         public ICommand ShowCustomerViewCommand { get; }
         public ICommand ShowAgentViewCommand { get; }
+        public ICommand ShowRealEstateViewCommand { get; }
 
         public MainViewModel()
         {
@@ -77,11 +78,17 @@ namespace WPF_Practice2024.Models
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
             ShowCustomerViewCommand = new ViewModelCommand(ExecuteShowCustomerViewCommand);
             ShowAgentViewCommand = new ViewModelCommand(ExecuteShowAgentViewCommand);
-
+            ShowRealEstateViewCommand = new ViewModelCommand(ExecuteShowRealEstateCommand);
             //Default view
             ExecuteShowHomeViewCommand(null);
 
             //LoadCurrentUserData();
+        }
+        private void ExecuteShowRealEstateCommand(object obj)
+        {
+            CurrentChildView = new RealEstateModel();
+            Caption = "RealEstate";
+            Icon = IconChar.HouseChimneyWindow;
         }
         private void ExecuteShowAgentViewCommand(object obj)
         {

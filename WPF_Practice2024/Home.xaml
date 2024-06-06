@@ -22,6 +22,9 @@
         <DataTemplate DataType="{x:Type viewModel:CustomerViewModel}">
             <local:CustomerView></local:CustomerView>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:AgentViewModel}">
+            <local:AgentsView></local:AgentsView>
+        </DataTemplate>
     </Window.Resources>
     <Border CornerRadius="10"                    
             BorderThickness="1">
@@ -81,6 +84,14 @@
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Customers" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+             Tag="{StaticResource color3}"
+             Command="{Binding ShowAgentViewCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="PeopleRoof" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Agents" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>

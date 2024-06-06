@@ -52,4 +52,8 @@ namespace WPF_Practice2024.Models
     {
 
     }
+    public class AgentViewModel : ViewModelBase
+    {
+
+    }
 }

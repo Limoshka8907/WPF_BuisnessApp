@@ -66,6 +66,7 @@ namespace WPF_Practice2024.Models
         //--> Commands
         public ICommand ShowHomeViewCommand { get; }
         public ICommand ShowCustomerViewCommand { get; }
+        public ICommand ShowAgentViewCommand { get; }
 
         public MainViewModel()
         {
@@ -75,13 +76,19 @@ namespace WPF_Practice2024.Models
             //Initialize commands
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
             ShowCustomerViewCommand = new ViewModelCommand(ExecuteShowCustomerViewCommand);
+            ShowAgentViewCommand = new ViewModelCommand(ExecuteShowAgentViewCommand);
 
             //Default view
             ExecuteShowHomeViewCommand(null);
 
             //LoadCurrentUserData();
         }
-
+        private void ExecuteShowAgentViewCommand(object obj)
+        {
+            CurrentChildView = new AgentViewModel();
+            Caption = "Agents";
+            Icon = IconChar.PeopleRoof;
+        }
         private void ExecuteShowCustomerViewCommand(object obj)
         {
             CurrentChildView = new CustomerViewModel();

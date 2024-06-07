@@ -84,7 +84,7 @@ namespace WPF_Practice2024
             string searchText = ((TextBox)sender).Text;
 
             // Выполняем запрос к базе данных с нечетким поиском
-            var clients = dbforpraktikaContext.Agents.ToList()
+            var agents = dbforpraktikaContext.Agents.ToList()
                 .Where(c =>
                     LevenshteinDistance.Calculate(c.FirstName, searchText) <= 3 ||
                     LevenshteinDistance.Calculate(c.LastName, searchText) <= 3
@@ -92,7 +92,7 @@ namespace WPF_Practice2024
                 .ToList();
 
             // Отображаем результаты в DataGrid
-            dataGrid1.ItemsSource = clients;
+            dataGrid1.ItemsSource = agents;
         }
 
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)

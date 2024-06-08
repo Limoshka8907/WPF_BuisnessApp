@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WPF_Practice2024.AgentsView"
+﻿<UserControl x:Class="WPF_Practice2024.RealtyView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -34,15 +34,16 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Column="0" x:Name="dataGrid1" Loaded="dataGrid_Loaded" SelectionChanged="dataGrid1_SelectionChanged">
+        <DataGrid Grid.Column="0" x:Name="dataGrid1" Loaded="dataGrid_Loaded">
         </DataGrid>
         <StackPanel VerticalAlignment="Center" Grid.Column="1">
             <TextBox Margin="10" TextChanged="TextBox_TextChanged" AutomationProperties.HelpText="Поиск..." LostFocus="TextBox_LostFocus"></TextBox>
             <Button Margin="10" Content="Сохранить" Click="saveData"></Button>
             <Button Margin="10" Content="Удалить" Click="deleteData"></Button>
             <StackPanel Margin="10">
-                <Label Foreground="White" Content="Список потребностей"></Label>
-                <ListBox x:Name="lstbox1" Height="80"></ListBox>
+                <RadioButton x:Name="r1" Foreground="White" Content="Квартира" IsChecked="True" Checked="r1_Checked"></RadioButton>
+                <RadioButton x:Name="r2" Foreground="White" Content="Дом" Checked="r2_Checked"></RadioButton>
+                <RadioButton x:Name="r3" Foreground="White" Content="Земля" Checked="r3_Checked"></RadioButton>
             </StackPanel>
         </StackPanel>
     </Grid>

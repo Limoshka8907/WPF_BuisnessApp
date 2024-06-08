@@ -60,4 +60,12 @@ namespace WPF_Practice2024.Models
     {
 
     }
+    public class RealtyViewModel : ViewModelBase
+    {
+
+    }
+    public class DemandsViewModel : ViewModelBase
+    {
+
+    }
 }

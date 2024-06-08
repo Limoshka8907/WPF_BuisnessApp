@@ -34,12 +34,16 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Column="0" x:Name="dataGrid1" Loaded="dataGrid_Loaded">
+        <DataGrid Grid.Column="0" x:Name="dataGrid1" Loaded="dataGrid_Loaded" SelectionChanged="dataGrid1_SelectionChanged_1">
         </DataGrid>
         <StackPanel VerticalAlignment="Center" Grid.Column="1">
             <TextBox Margin="10" TextChanged="TextBox_TextChanged" AutomationProperties.HelpText="Поиск..." LostFocus="TextBox_LostFocus"></TextBox>
             <Button Margin="10" Content="Сохранить" Click="saveData"></Button>
             <Button Margin="10" Content="Удалить" Click="deleteData"></Button>
+            <StackPanel Margin="10">
+                <Label Foreground="White" Content="Список потребностей"></Label>
+                <ListBox x:Name="lstbox1" Height="80"></ListBox>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -92,6 +92,17 @@ namespace WPF_Practice2024
         {
             dataGrid1.ItemsSource = dbforpraktikaContext.Clients.ToList();
         }
+
+        private void dataGrid1_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            lstbox1.Items.Clear();
+            var client = dataGrid1.SelectedItem as Client;
+            dbforpraktikaContext = new DbforpraktikaContext();
+            foreach (var a in dbforpraktikaContext.Demands.Where(a => a.IdClient == client.IdClient).ToList())
+            {
+                lstbox1.Items.Add($"Id потребности {a.IdDemand} Агент#{a.IdAgent} Адрес:{a.Adress}");
+            }
+        }
     }
 
     public static class LevenshteinDistance
@@ -138,5 +149,6 @@ namespace WPF_Practice2024
 
             return distance[n, m];
         }
+
     }
 }

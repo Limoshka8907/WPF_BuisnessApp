@@ -99,5 +99,17 @@ namespace WPF_Practice2024
         {
             dataGrid1.ItemsSource = dbforpraktikaContext.Agents.ToList();
         }
+
+        private void dataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            lstbox1.Items.Clear();
+            var agent = dataGrid1.SelectedItem as Agent;
+            dbforpraktikaContext = new DbforpraktikaContext();
+            foreach(var a in dbforpraktikaContext.Demands.Where(a => a.IdAgent == agent.IdAgent).ToList())
+            {
+                lstbox1.Items.Add($"Id потребности {a.IdDemand} Клиент#{a.IdClient} Адрес:{a.Adress}");
+            }
+            
+        }
     }
 }

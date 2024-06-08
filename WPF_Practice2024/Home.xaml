@@ -28,6 +28,14 @@
         <DataTemplate DataType="{x:Type viewModel:RealEstateModel}">
             <local:RealEstateView></local:RealEstateView>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:RealtyViewModel}">
+            <local:RealtyView>
+            </local:RealtyView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:DemandsViewModel}">
+            <local:DemandsView>
+            </local:DemandsView>
+        </DataTemplate>
     </Window.Resources>
     <Border CornerRadius="10"                    
             BorderThickness="1">
@@ -103,6 +111,22 @@
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="HouseChimneyWindow" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="RealEstate" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+               Tag="{StaticResource color5}"
+               Command="{Binding ShowRealtyViewCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="City" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Realty" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                        Tag="{StaticResource color6}"
+                        Command="{Binding ShowDemandsViewCommand}">  
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="HandHolding" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Demands" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>

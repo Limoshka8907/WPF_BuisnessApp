@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Xml.Serialization;
 
 namespace WPF_Practice2024.Models
 {
@@ -68,6 +69,9 @@ namespace WPF_Practice2024.Models
         public ICommand ShowCustomerViewCommand { get; }
         public ICommand ShowAgentViewCommand { get; }
         public ICommand ShowRealEstateViewCommand { get; }
+        public ICommand ShowRealtyViewCommand { get; }
+        public ICommand ShowDemandsViewCommand { get; }
+
 
         public MainViewModel()
         {
@@ -79,6 +83,8 @@ namespace WPF_Practice2024.Models
             ShowCustomerViewCommand = new ViewModelCommand(ExecuteShowCustomerViewCommand);
             ShowAgentViewCommand = new ViewModelCommand(ExecuteShowAgentViewCommand);
             ShowRealEstateViewCommand = new ViewModelCommand(ExecuteShowRealEstateCommand);
+            ShowRealtyViewCommand = new ViewModelCommand(ExecuteShowRealtyViewCommand);
+            ShowDemandsViewCommand = new ViewModelCommand(ExecuteShowDemandsViewCommand);
             //Default view
             ExecuteShowHomeViewCommand(null);
 
@@ -108,6 +114,19 @@ namespace WPF_Practice2024.Models
             CurrentChildView = new HomeViewModel();
             Caption = "Dashboard";
             Icon = IconChar.Home;
+        }
+
+        private void ExecuteShowRealtyViewCommand(object obj)
+        {
+            CurrentChildView = new RealtyViewModel();
+            Caption = "Realty";
+            Icon = IconChar.City;
+        }
+        private void ExecuteShowDemandsViewCommand(object obj)
+        {
+            CurrentChildView = new DemandsViewModel();
+            Caption = "Demands";
+            Icon = IconChar.HandHolding;
         }
     }
 }

@@ -113,9 +113,8 @@ namespace WPF_Practice2024
         {
 
             var selected = dataGrid1.SelectedItem as RealEstate;
-            if (selected == null) { selected = new RealEstate { IdDistrict = 647 }; }
             dbforpraktikaContext = new DbforpraktikaContext();
-            if (selected != null)
+            if (selected != null && selected.IdDistrict != null)
             {
 
                 List<District> disctricts = dbforpraktikaContext.Districts

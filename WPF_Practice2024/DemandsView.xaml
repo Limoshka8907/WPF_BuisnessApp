@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="WPF_Practice2024.DemandsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_Practice2024"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="DataGrid">
+            <Setter Property="Background" Value="#2E2E2E"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="RowHeaderWidth" Value="0"/>
+            <Setter Property="RowBackground" Value="#131313"/>
+            <Setter Property="AlternatingRowBackground" Value="#4E4E4E"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="ColumnHeaderStyle">
+                <Setter.Value>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#3E3E3E"/>
+                        <Setter Property="Foreground" Value="#FFFFFF"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Padding" Value="5"/>
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.Column="0" x:Name="dataGrid1" Loaded="dataGrid_Loaded">
+        </DataGrid>
+        <StackPanel VerticalAlignment="Center" Grid.Column="1">
+            <TextBox Margin="10" TextChanged="TextBox_TextChanged" AutomationProperties.HelpText="Поиск..." LostFocus="TextBox_LostFocus"></TextBox>
+            <Button x:Name="save_btn" Margin="10" Content="Сохранить" Click="saveData"></Button>
+            <Button x:Name="delete_btn" Margin="10" Content="Удалить" Click="deleteData"></Button>
+            <StackPanel Margin="10">
+                <RadioButton x:Name="r1" Foreground="White" Content="Квартира" IsChecked="True" Checked="r1_Checked"></RadioButton>
+                <RadioButton x:Name="r2" Foreground="White" Content="Дом" Checked="r2_Checked"></RadioButton>
+                <RadioButton x:Name="r3" Foreground="White" Content="Земля" Checked="r3_Checked"></RadioButton>
+                <RadioButton x:Name="r4" Foreground="White" Content="Все потребности" Checked="r4_Checked"></RadioButton>
+            </StackPanel>
+            <StackPanel x:Name="demandPanel" Margin="10" >
+                <Label Foreground="White" Content="Добавление потребности" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Bahnschrift SemiBold"/>
+                <Label Content="Агенты:" Foreground="White"></Label>
+                <ComboBox x:Name="com1" Margin="0,5,0,0"></ComboBox>
+                <Label Content="Клиенты:" Foreground="White"></Label>
+                <ComboBox x:Name="com2" Margin="0,5,0,0"></ComboBox>
+                <Label Content="Тип недвижимости:" Foreground="White"></Label>
+                <ComboBox x:Name="com3" Margin="0,5,0,0" SelectionChanged="com3_SelectionChanged"></ComboBox>
+                <Label Content="Адрес:" Foreground="White"></Label>
+                <TextBox x:Name="txtAddress" Margin="0,5,0,0"></TextBox>
+                <Label Content="Цена (от-до):" Foreground="White"></Label>
+                <local:MySlider x:Name="slider" SilderWidth="250" Minimum="0" Maximum="10000000" SliderTickFrequency="250000"></local:MySlider>
+                <Label Content="Id Недвижимости:" Foreground="White"></Label>
+                <ComboBox x:Name="com4"></ComboBox>
+                <Button Click="newDemand" Margin="0,5,0,0" Height="35" Content="Добавить потребность"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -35,7 +35,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Column="0" x:Name="dataGrid1" Loaded="dataGrid_Loaded">
+        <DataGrid Grid.Column="0" x:Name="dataGrid1" Loaded="dataGrid_Loaded" SelectionChanged="dataGrid1_SelectionChanged">
         </DataGrid>
         <StackPanel VerticalAlignment="Center" Grid.Column="1">
             <Grid>

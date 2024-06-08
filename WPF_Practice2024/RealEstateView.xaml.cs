@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,29 +24,11 @@ namespace WPF_Practice2024
     /// </summary>
     public partial class RealEstateView : UserControl
     {
-            private DbforpraktikaContext dbforpraktikaContext;
-            private int rowsCount;
+        private DbforpraktikaContext dbforpraktikaContext;
+        private int rowsCount;
         public RealEstateView()
         {
             InitializeComponent();
-            webView.Source = new Uri("https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=600&height=400&center=lonlat:65.55378,57.074768&zoom=13.4532&marker=lonlat:65.549416154359,57.0731;color:%23ff0000;size:medium;text:1&apiKey=6c7348250b1d4b6b9963fd2bcc57cede");
-            // LINQ-запрос для поиска соответствующих записей
-            var selected = dataGrid1.SelectedItem as RealEstate;
-            dbforpraktikaContext = new DbforpraktikaContext();
-            if (selected != null)
-            {
-                var disctricts = dbforpraktikaContext.Districts
-                    .Where(di => di.IdDistrict == selected.IdDistrict)
-                    .ToList();
-                MessageBox.Show(disctricts.ToList().ToString());
-            }
-            else
-            {
-               // dataGrid1.SelectedItem = 0;
-                var realEstates = dbforpraktikaContext.RealEstates
-                    .Where(re => re.IdDistrict == 1)
-                    .ToList();
-            }
         }
 
         private void dataGrid_Loaded(object sender, RoutedEventArgs e)
@@ -52,6 +36,9 @@ namespace WPF_Practice2024
             dbforpraktikaContext = new DbforpraktikaContext();
             dataGrid1.ItemsSource = dbforpraktikaContext.RealEstates.ToList();
             rowsCount = dataGrid1.Items.Count;
+            // webView.Source = new Uri("https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=600&height=400&center=lonlat:65.55378,57.074768&zoom=13.4532&marker=lonlat:65.549416154359,57.0731;color:%23ff0000;size:medium;text:1&apiKey=6c7348250b1d4b6b9963fd2bcc57cede");
+
+            // LINQ-запрос для поиска соответствующих записей
 
         }
 
@@ -120,12 +107,93 @@ namespace WPF_Practice2024
         {
             dataGrid1.ItemsSource = dbforpraktikaContext.Clients.ToList();
         }
+
+
+        private void dataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            var selected = dataGrid1.SelectedItem as RealEstate;
+            if (selected == null) { selected = new RealEstate { IdDistrict = 647 }; }
+            dbforpraktikaContext = new DbforpraktikaContext();
+            if (selected != null)
+            {
+
+                List<District> disctricts = dbforpraktikaContext.Districts
+                    .Where(di => di.IdDistrict == selected.IdDistrict)
+                    .ToList();
+                string data = disctricts[0].Area;
+                // Удаление лишних символов
+                data = data.Trim('(', ')', ' ');
+
+                // Разделение строки на пары координат
+                string[] coordinatePairs = data.Split(',');
+
+                // Создание списка координат
+                List<Coordinate> coordinates = new List<Coordinate>();
+                for (int i = 0; i < coordinatePairs.Length; i += 2)
+                {// Замена точки на запятую, если используется точка как разделитель
+                    if (coordinatePairs[i].Contains("."))
+                    {
+                        coordinatePairs[i] = coordinatePairs[i].Replace('.', '.');
+                    }
+                    string latitude = coordinatePairs[i];
+                    string longitude = coordinatePairs[i + 1];
+
+                    coordinates.Add(new Coordinate { Latitude = latitude, Longitude = longitude });
+
+                }
+
+                // Инициализация списка маркеров
+                var markers = new List<string>();
+                string baseurl = "";
+                // Добавление маркеров для каждой пары координат
+                for (int i = 0; i < coordinates.Count; i++)
+                {
+                    var lon = coordinates[i].Longitude.TrimEnd(')').TrimStart('(');
+                    var lat = coordinates[i].Latitude.TrimStart('(').TrimEnd(')');
+                    string marker = "";
+                    if (i == 0)
+                    {
+                        marker = $"marker=lonlat:{lon},{lat};color:%23ff0000;size:medium;text:{i + 1}";
+                    }
+                    else
+                    {
+                        marker = $"|lonlat:{lon},{lat};color:%23ff0000;size:medium;text:{i + 1}";
+                    }
+                    markers.Add(marker);
+                }
+
+                baseurl = $"https://maps.geoapify.com/v1/staticmap?style=osm-bright&width=600&height=400&center=lonlat:{coordinates[0].Longitude.TrimEnd(')')},{coordinates[0].Latitude}&zoom=13.4532";
+
+
+                // Создание полного URL-адреса карты с маркерами
+                string url = $"{baseurl}&";
+                for (int i = 0; i < markers.Count; i++)
+                {
+
+                    url += ($"{markers[i]}");
+                }
+                url += "&apiKey=6c7348250b1d4b6b9963fd2bcc57cede";
+                // Открытие карты в веб-браузере
+
+                webView.Source = (new Uri(url));
+            }
+            else
+            {
+                // dataGrid1.SelectedItem = 0;
+                var realEstates = dbforpraktikaContext.RealEstates
+                    .Where(re => re.IdDistrict == 1)
+                    .ToList();
+            }
+
+
+        }
     }
 
     public class Coordinate
     {
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
     }
 
 }

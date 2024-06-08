@@ -46,7 +46,7 @@
                 <RadioButton x:Name="r3" Foreground="White" Content="Земля" Checked="r3_Checked"></RadioButton>
                 <RadioButton x:Name="r4" Foreground="White" Content="Все потребности" Checked="r4_Checked"></RadioButton>
             </StackPanel>
-            <StackPanel x:Name="demandPanel" Margin="10" >
+            <StackPanel x:Name="demandPanel" Margin="10" Visibility="Hidden">
                 <Label Foreground="White" Content="Добавление потребности" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Bahnschrift SemiBold"/>
                 <Label Content="Агенты:" Foreground="White"></Label>
                 <ComboBox x:Name="com1" Margin="0,5,0,0"></ComboBox>

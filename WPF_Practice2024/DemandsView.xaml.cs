@@ -119,9 +119,9 @@ namespace WPF_Practice2024
                 var item = dataGrid1.SelectedItem as Demand;
                 try
                 {
-                        dbforpraktikaContext.Update(item);
-                        dbforpraktikaContext.SaveChanges();
-                        MessageBox.Show("Хорошо");   
+                    dbforpraktikaContext.Update(item);
+                    dbforpraktikaContext.SaveChanges();
+                    MessageBox.Show("Хорошо");
                 }
                 catch (Exception ex)
                 {
@@ -217,12 +217,12 @@ namespace WPF_Practice2024
             else if (r4.IsChecked == true)
             {
                 dataGrid1.ItemsSource = dbforpraktikaContext.Demands.ToList();
-
             }
         }
 
         private void r1_Checked(object sender, RoutedEventArgs e)
         {
+            if (demandPanel != null) demandPanel.Visibility = Visibility.Hidden;
             dataGrid1.CanUserAddRows = true;
             dbforpraktikaContext = new DbforpraktikaContext();
             dataGrid1.ItemsSource = dbforpraktikaContext.DemandApartments.ToList();
@@ -230,6 +230,7 @@ namespace WPF_Practice2024
 
         private void r2_Checked(object sender, RoutedEventArgs e)
         {
+            if (demandPanel != null) demandPanel.Visibility = Visibility.Hidden;
             dataGrid1.CanUserAddRows = true;
             dbforpraktikaContext = new DbforpraktikaContext();
             dataGrid1.ItemsSource = dbforpraktikaContext.DemandHouses.ToList();
@@ -237,6 +238,7 @@ namespace WPF_Practice2024
 
         private void r3_Checked(object sender, RoutedEventArgs e)
         {
+            if (demandPanel != null) demandPanel.Visibility = Visibility.Hidden;
             dataGrid1.CanUserAddRows = true;
             dbforpraktikaContext = new DbforpraktikaContext();
             dataGrid1.ItemsSource = dbforpraktikaContext.DemandLands.ToList();
@@ -250,7 +252,7 @@ namespace WPF_Practice2024
             dbforpraktikaContext = new DbforpraktikaContext();
             dataGrid1.ItemsSource = dbforpraktikaContext.Demands.ToList();
             demandPanel.Visibility = Visibility.Visible;
-            foreach(var agent in dbforpraktikaContext.Agents.ToList())
+            foreach (var agent in dbforpraktikaContext.Agents.ToList())
             {
                 com1.Items.Add(agent.IdAgent + " " + agent.FirstName);
             }
@@ -261,16 +263,16 @@ namespace WPF_Practice2024
             com3.Items.Add("квартира");
             com3.Items.Add("дом");
             com3.Items.Add("земля");
-            
+
         }
 
         private void com3_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             com4.Items.Clear();
-            if (com3.SelectedItem != null && com3.SelectedItem.ToString() == "дом") 
+            if (com3.SelectedItem != null && com3.SelectedItem.ToString() == "дом")
             {
                 dbforpraktikaContext = new DbforpraktikaContext();
-                foreach(var house in dbforpraktikaContext.Houses.ToList())
+                foreach (var house in dbforpraktikaContext.Houses.ToList())
                 {
                     com4.Items.Add(house.IdHouse);
                 }
@@ -295,10 +297,24 @@ namespace WPF_Practice2024
         }
         private void newDemand(object sender, EventArgs e)
         {
+            int? a = int.Parse(com4.SelectedItem.ToString());
             if (com1.SelectedItem != null && com2.SelectedItem != null && com3.SelectedItem != null && com4.SelectedItem != null)
             {
                 dbforpraktikaContext = new DbforpraktikaContext();
-                if(com3.SelectedItem == "квартира")
+                int? sliderVal1;
+                int? sliderVal2;
+
+                if (int.Parse(slider.SL_Bat1.Value.ToString()) == 0 && int.Parse(slider.SL_Bat2.Value.ToString()) == 0)
+                {
+                    sliderVal1 = null;
+                    sliderVal2 = null;
+                }
+                else
+                {
+                    sliderVal1 = int.Parse(slider.SL_Bat1.Value.ToString());
+                    sliderVal2 = int.Parse(slider.SL_Bat2.Value.ToString());
+                }
+                if (com3.SelectedItem == "квартира")
                 {
                     dbforpraktikaContext.Demands.Add(new Demand
                     {
@@ -306,12 +322,12 @@ namespace WPF_Practice2024
                         IdClient = int.Parse(com2.SelectedItem.ToString().Split(' ')[0]),
                         IdApartment = int.Parse(com4.SelectedItem.ToString()),
                         Adress = txtAddress.Text,
-                        MinPrice = int.Parse(slider.SL_Bat1.Value.ToString()),
-                        MaxPrice = int.Parse(slider.SL_Bat2.Value.ToString()),
+                        MinPrice = sliderVal1,
+                        MaxPrice = sliderVal2,
                         TypeRealEstate = com3.SelectedItem.ToString()
                     });
                 }
-                else if(com3.SelectedItem == "дом")
+                else if (com3.SelectedItem == "дом")
                 {
                     dbforpraktikaContext.Demands.Add(new Demand
                     {
@@ -319,8 +335,8 @@ namespace WPF_Practice2024
                         IdClient = int.Parse(com2.SelectedItem.ToString().Split(' ')[0]),
                         IdHouse = int.Parse(com4.SelectedItem.ToString()),
                         Adress = txtAddress.Text,
-                        MinPrice = int.Parse(slider.SL_Bat1.Value.ToString()),
-                        MaxPrice = int.Parse(slider.SL_Bat2.Value.ToString()),
+                        MinPrice = sliderVal1,
+                        MaxPrice = sliderVal2,
                         TypeRealEstate = com3.SelectedItem.ToString()
 
                     });
@@ -333,8 +349,8 @@ namespace WPF_Practice2024
                         IdClient = int.Parse(com2.SelectedItem.ToString().Split(' ')[0]),
                         IdLand = int.Parse(com4.SelectedItem.ToString()),
                         Adress = txtAddress.Text,
-                        MinPrice = int.Parse(slider.SL_Bat1.Value.ToString()),
-                        MaxPrice = int.Parse(slider.SL_Bat2.Value.ToString()),
+                        MinPrice = sliderVal1,
+                        MaxPrice = sliderVal2,
                         TypeRealEstate = com3.SelectedItem.ToString()
 
                     });
@@ -346,7 +362,7 @@ namespace WPF_Practice2024
             {
                 MessageBox.Show("Проверьте поля для заполнения");
             }
-           
+
         }
     }
 }

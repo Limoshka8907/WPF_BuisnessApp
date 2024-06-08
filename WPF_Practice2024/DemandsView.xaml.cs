@@ -27,13 +27,7 @@ namespace WPF_Practice2024
         }
         private DbforpraktikaContext dbforpraktikaContext;
         private int rowsCount;
-        static int agentId;
-        static int clientId;
-        static int minPrice;
-        static int maxPrice;
-        static string address;
-        static string type_realty;
-        static int id_realty;
+
 
         private void dataGrid_Loaded(object sender, RoutedEventArgs e)
         {
@@ -272,7 +266,7 @@ namespace WPF_Practice2024
             if (com3.SelectedItem != null && com3.SelectedItem.ToString() == "дом")
             {
                 dbforpraktikaContext = new DbforpraktikaContext();
-                foreach (var house in dbforpraktikaContext.Houses.ToList())
+                foreach (var house in dbforpraktikaContext.DemandHouses.ToList())
                 {
                     com4.Items.Add(house.IdHouse);
                 }
@@ -280,7 +274,7 @@ namespace WPF_Practice2024
             else if (com3.SelectedItem != null && com3.SelectedItem.ToString() == "квартира")
             {
                 dbforpraktikaContext = new DbforpraktikaContext();
-                foreach (var apartment in dbforpraktikaContext.Apartments.ToList())
+                foreach (var apartment in dbforpraktikaContext.DemandApartments.ToList())
                 {
                     com4.Items.Add(apartment.IdApartment);
                 }
@@ -288,7 +282,7 @@ namespace WPF_Practice2024
             else if (com3.SelectedItem != null && com3.SelectedItem.ToString() == "земля")
             {
                 dbforpraktikaContext = new DbforpraktikaContext();
-                foreach (var land in dbforpraktikaContext.Lands.ToList())
+                foreach (var land in dbforpraktikaContext.DemandLands.ToList())
                 {
                     com4.Items.Add(land.IdLand);
                 }

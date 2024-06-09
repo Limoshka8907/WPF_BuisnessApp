@@ -24,7 +24,7 @@ namespace WPF_Practice2024
         private void dataGrid_Loaded(object sender, RoutedEventArgs e)
         {
             dbforpraktikaContext = new DbforpraktikaContext();
-            dataGrid1.ItemsSource =  dbforpraktikaContext.Clients.ToList();
+            dataGrid1.ItemsSource = dbforpraktikaContext.Clients.ToList();
             rowsCount = dataGrid1.Items.Count;
         }
 
@@ -72,7 +72,7 @@ namespace WPF_Practice2024
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+
             // Получаем текст из TextBox
             string searchText = ((TextBox)sender).Text;
 
@@ -96,12 +96,22 @@ namespace WPF_Practice2024
         private void dataGrid1_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             lstbox1.Items.Clear();
-            var client = dataGrid1.SelectedItem as Client;
-            dbforpraktikaContext = new DbforpraktikaContext();
-            foreach (var a in dbforpraktikaContext.Demands.Where(a => a.IdClient == client.IdClient).ToList())
+            lstbox2.Items.Clear();
+            if (dataGrid1.SelectedItem != null)
             {
-                lstbox1.Items.Add($"Id потребности {a.IdDemand} Агент#{a.IdAgent} Адрес:{a.Adress}");
+
+                var client = dataGrid1.SelectedItem as Client;
+                dbforpraktikaContext = new DbforpraktikaContext();
+                foreach (var a in dbforpraktikaContext.Demands.Where(a => a.IdClient == client.IdClient).ToList())
+                {
+                    lstbox1.Items.Add($"Id потребности {a.IdDemand} Агент#{a.IdAgent} Адрес:{a.Adress}");
+                }
+                foreach (var a in dbforpraktikaContext.Supplies.Where(a => a.IdClient == client.IdClient).ToList())
+                {
+                    lstbox2.Items.Add($"Id предложения {a.IdSupply} Агент#{a.IdAgent} Цена:{a.Price}");
+                }
             }
+
         }
     }
 

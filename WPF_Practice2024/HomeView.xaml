@@ -513,13 +513,13 @@
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Calendar Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource CalendarStyle1}" CalendarButtonStyle="{DynamicResource CalendarButtonStyle1}" CalendarDayButtonStyle="{DynamicResource CalendarDayButtonStyle1}" CalendarItemStyle="{DynamicResource CalendarItemStyle1}" Foreground="#FF48006B" />
+        <Calendar x:Name="calendar" Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource CalendarStyle1}" CalendarButtonStyle="{DynamicResource CalendarButtonStyle1}" CalendarDayButtonStyle="{DynamicResource CalendarDayButtonStyle1}" CalendarItemStyle="{DynamicResource CalendarItemStyle1}" Foreground="#FF48006B" SelectedDatesChanged="calendar_SelectedDatesChanged"  />
         <ListBox x:Name="lstBox" Grid.Row="0" Grid.Column="1"></ListBox>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
-            <Button Content="Новая запись"></Button>
-            <Button Content="Удалить запись"></Button>
+            <Button Click="createRecord" Content="Новая запись"></Button>
+            <Button Click="deleteRecord" Content="Удалить запись"></Button>
             <TextBlock Text="Поиск:" Margin="10,0,3,0" Foreground="White" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBox Width="250px"></TextBox>
+            <ComboBox x:Name="com1" Width="250px"></ComboBox>
             
         </StackPanel>
     </Grid>

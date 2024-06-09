@@ -1,0 +1,94 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "NewContext",
+   "ContextNamespace": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "WPF_Practice2024",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[Agents]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Apartments]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Clients]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Deals]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Demand_Apartments]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Demand_Houses]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Demand_Lands]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Demands]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Districts]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Houses]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Lands]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RealEstates]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Supply]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDateOnlyTimeOnly": true,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

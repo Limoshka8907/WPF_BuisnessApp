@@ -22,4 +22,5 @@ public partial class Supply
     public virtual RealEstate IdRealEstateNavigation { get; set; } = null!;
 
     public virtual ICollection<Demand> IdDemands { get; set; } = new List<Demand>();
+    public virtual ICollection<Deal> Deals { get; set; } = new List<Deal>();
 }

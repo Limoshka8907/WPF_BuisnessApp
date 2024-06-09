@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+<Node Id="IModel" Label="DbforpraktikaContext" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" PropertyAccessMode="PropertyAccessMode.Default" ProductVersion="8.0.6" Annotations="BaseTypeDiscoveryConvention:DerivedTypes: System.Collections.Generic.Dictionary`2[System.Type,System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.IConventionEntityType]]
+Relational:MaxIdentifierLength: 128
+RelationshipDiscoveryConvention:InverseNavigationCandidates: System.Collections.Generic.Dictionary`2[System.Type,System.Collections.Generic.SortedSet`1[System.Type]]
+SqlServer:ValueGenerationStrategy: IdentityColumn" Category="Model" Group="Expanded" />
+<Node Id = "Agent" Label="Agent" Name="Agent" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Agents
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "Apartment" Label="Apartment" Name="Apartment" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Apartments
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "Agent.IdAgent" Label="IdAgent (int)" Name="IdAgent" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: IdAgent" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Agent.Demands" Label="Demands (*)" Name="Demands" Category="Navigation Collection" Type="ICollection&lt;Demand&gt;"  Field="" Dependent="Demand" Principal="" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Agent.Supplies" Label="Supplies (*)" Name="Supplies" Category="Navigation Collection" Type="ICollection&lt;Supply&gt;"  Field="" Dependent="Supply" Principal="" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Agent.DealShare" Label="DealShare (int?)" Name="DealShare" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Agent.FirstName" Label="FirstName (string)" Name="FirstName" Category="Property Optional" Type="string" MaxLength="(50)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 50" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Agent.LastName" Label="LastName (string)" Name="LastName" Category="Property Optional" Type="string" MaxLength="(50)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 50" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Agent.MiddleName" Label="MiddleName (string)" Name="MiddleName" Category="Property Optional" Type="string" MaxLength="(50)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 50
+Relational:IsFixedLength: True" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Client" Label="Client" Name="Client" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Clients
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "Apartment.IdApartment" Label="IdApartment (int)" Name="IdApartment" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: IdApartament
+SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Apartment.RealEstates" Label="RealEstates (*)" Name="RealEstates" Category="Navigation Collection" Type="ICollection&lt;RealEstate&gt;"  Field="" Dependent="RealEstate" Principal="" Inverse="IdApartmentNavigation" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Apartment.Floors" Label="Floors (int?)" Name="Floors" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Apartment.Rooms" Label="Rooms (int?)" Name="Rooms" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Apartment.TotalArea" Label="TotalArea (double?)" Name="TotalArea" Category="Property Optional" Type="double?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Deal" Label="Deal" Name="Deal" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "Client.IdClient" Label="IdClient (int)" Name="IdClient" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: IdClient" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Client.Demands" Label="Demands (*)" Name="Demands" Category="Navigation Collection" Type="ICollection&lt;Demand&gt;"  Field="" Dependent="Demand" Principal="" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Client.Supplies" Label="Supplies (*)" Name="Supplies" Category="Navigation Collection" Type="ICollection&lt;Supply&gt;"  Field="" Dependent="Supply" Principal="" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Client.Email" Label="Email (string)" Name="Email" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Client.FirstName" Label="FirstName (string)" Name="FirstName" Category="Property Optional" Type="string" MaxLength="(50)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 50" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Client.LastName" Label="LastName (string)" Name="LastName" Category="Property Optional" Type="string" MaxLength="(50)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 50" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Client.MiddleName" Label="MiddleName (string)" Name="MiddleName" Category="Property Optional" Type="string" MaxLength="(50)" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 50" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Client.Phone" Label="Phone (string)" Name="Phone" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Demand" Label="Demand" Name="Demand" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Demands
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "Deal.Id_Deal" Label="Id_Deal (int)" Name="Id_Deal" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Deal.IdDemandNavigation" Label="IdDemandNavigation (1)" Name="IdDemandNavigation" Category="Navigation Property" Type="Demand"  Field="" Dependent="" Principal="Demand" Inverse="Deals" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Deal.IdSupplyNavigation" Label="IdSupplyNavigation (1)" Name="IdSupplyNavigation" Category="Navigation Property" Type="Supply"  Field="" Dependent="" Principal="Supply" Inverse="Deals" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Deal.IdDemand" Label="IdDemand (int)" Name="IdDemand" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Deal.IdSupply" Label="IdSupply (int)" Name="IdSupply" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "DemandApartment" Label="DemandApartment" Name="DemandApartment" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:Schema:
+Relational:TableName: Demand_Apartments
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "Demand.IdDemand" Label="IdDemand (int)" Name="IdDemand" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Demand.Deals" Label="Deals (*)" Name="Deals" Category="Navigation Collection" Type="ICollection&lt;Deal&gt;"  Field="" Dependent="Deal" Principal="" Inverse="IdDemandNavigation" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Demand.Adress" Label="Adress (string)" Name="Adress" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Demand.AgentIdAgent" Label="AgentIdAgent (int?)" Name="AgentIdAgent" Category="Property Foreign" Type="int?" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="False" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Demand.ClientIdClient" Label="ClientIdClient (int?)" Name="ClientIdClient" Category="Property Foreign" Type="int?" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="False" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Demand.DemandApartmentIdApartment" Label="DemandApartmentIdApartment (int?)" Name="DemandApartmentIdApartment" Category="Property Foreign" Type="int?" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="False" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Demand.DemandHouseIdHouse" Label="DemandHouseIdHouse (int?)" Name="DemandHouseIdHouse" Category="Property Foreign" Type="int?" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="False" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Demand.DemandLandIdLand" Label="DemandLandIdLand (int?)" Name="DemandLandIdLand" Category="Property Foreign" Type="int?" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="False" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Demand.IdAgent" Label="IdAgent (int)" Name="IdAgent" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Demand.IdApartament" Label="IdApartament (int?)" Name="IdApartament" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Demand.IdClient" Label="IdClient (int)" Name="IdClient" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Demand.IdHouse" Label="IdHouse (int?)" Name="IdHouse" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Demand.IdLand" Label="IdLand (int?)" Name="IdLand" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Demand.MaxPrice" Label="MaxPrice (int?)" Name="MaxPrice" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Demand.MinPrice" Label="MinPrice (int?)" Name="MinPrice" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Demand.TypeRealEstate" Label="TypeRealEstate (string)" Name="TypeRealEstate" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "DemandHouse" Label="DemandHouse" Name="DemandHouse" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:Schema:
+Relational:TableName: Demand_Houses
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "DemandApartment.IdApartment" Label="IdApartment (int)" Name="IdApartment" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: IdApartament
+SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "DemandApartment.Demands" Label="Demands (*)" Name="Demands" Category="Navigation Collection" Type="ICollection&lt;Demand&gt;"  Field="" Dependent="Demand" Principal="" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "DemandApartment.MaxArea" Label="MaxArea (double?)" Name="MaxArea" Category="Property Optional" Type="double?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "DemandApartment.MaxFloor" Label="MaxFloor (int?)" Name="MaxFloor" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "DemandApartment.MaxRooms" Label="MaxRooms (int?)" Name="MaxRooms" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "DemandApartment.MinArea" Label="MinArea (double?)" Name="MinArea" Category="Property Optional" Type="double?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "DemandApartment.MinFloor" Label="MinFloor (int?)" Name="MinFloor" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "DemandApartment.MinRooms" Label="MinRooms (int?)" Name="MinRooms" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "DemandLand" Label="DemandLand" Name="DemandLand" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:Schema:
+Relational:TableName: Demand_Lands
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "DemandHouse.IdHouse" Label="IdHouse (int)" Name="IdHouse" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: IdHouse
+SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "DemandHouse.Demands" Label="Demands (*)" Name="Demands" Category="Navigation Collection" Type="ICollection&lt;Demand&gt;"  Field="" Dependent="Demand" Principal="" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "DemandHouse.MaxArea" Label="MaxArea (double?)" Name="MaxArea" Category="Property Optional" Type="double?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "DemandHouse.MaxFloor" Label="MaxFloor (int?)" Name="MaxFloor" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "DemandHouse.MaxRooms" Label="MaxRooms (int?)" Name="MaxRooms" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "DemandHouse.MinArea" Label="MinArea (double?)" Name="MinArea" Category="Property Optional" Type="double?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "DemandHouse.MinFloor" Label="MinFloor (int?)" Name="MinFloor" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "DemandHouse.MinRooms" Label="MinRooms (int?)" Name="MinRooms" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "District" Label="District" Name="District" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Districts
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "DemandLand.IdLand" Label="IdLand (int)" Name="IdLand" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: IdLand
+SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "DemandLand.Demands" Label="Demands (*)" Name="Demands" Category="Navigation Collection" Type="ICollection&lt;Demand&gt;"  Field="" Dependent="Demand" Principal="" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "DemandLand.MaxArea" Label="MaxArea (double?)" Name="MaxArea" Category="Property Optional" Type="double?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "DemandLand.MinArea" Label="MinArea (double?)" Name="MinArea" Category="Property Optional" Type="double?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "House" Label="House" Name="House" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Houses
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "District.IdDistrict" Label="IdDistrict (int)" Name="IdDistrict" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: IdDisctrict
+SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "District.RealEstates" Label="RealEstates (*)" Name="RealEstates" Category="Navigation Collection" Type="ICollection&lt;RealEstate&gt;"  Field="" Dependent="RealEstate" Principal="" Inverse="IdDistrictNavigation" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "District.Area" Label="Area (string)" Name="Area" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "District.Names" Label="Names (string)" Name="Names" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Land" Label="Land" Name="Land" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Lands
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "House.IdHouse" Label="IdHouse (int)" Name="IdHouse" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: IdHouse
+SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "House.RealEstates" Label="RealEstates (*)" Name="RealEstates" Category="Navigation Collection" Type="ICollection&lt;RealEstate&gt;"  Field="" Dependent="RealEstate" Principal="" Inverse="IdHouseNavigation" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "House.TotalArea" Label="TotalArea (double?)" Name="TotalArea" Category="Property Optional" Type="double?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "House.TotalFloor" Label="TotalFloor (int?)" Name="TotalFloor" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "House.TotalRooms" Label="TotalRooms (int?)" Name="TotalRooms" Category="Property Optional" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RealEstate" Label="RealEstate" Name="RealEstate" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: RealEstates
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "Land.IdLand" Label="IdLand (int)" Name="IdLand" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: IdLand
+SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Land.RealEstates" Label="RealEstates (*)" Name="RealEstates" Category="Navigation Collection" Type="ICollection&lt;RealEstate&gt;"  Field="" Dependent="RealEstate" Principal="" Inverse="IdLandNavigation" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Land.TotalArea" Label="TotalArea (double?)" Name="TotalArea" Category="Property Optional" Type="double?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Supply" Label="Supply" Name="Supply" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:Schema:
+Relational:TableName: Supply
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "RealEstate.IdRealEstate" Label="IdRealEstate (int)" Name="IdRealEstate" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: IdRealEstate
+SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "RealEstate.IdApartmentNavigation" Label="IdApartmentNavigation (1)" Name="IdApartmentNavigation" Category="Navigation Property" Type="Apartment"  Field="" Dependent="" Principal="Apartment" Inverse="RealEstates" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "RealEstate.IdDistrictNavigation" Label="IdDistrictNavigation (1)" Name="IdDistrictNavigation" Category="Navigation Property" Type="District"  Field="" Dependent="" Principal="District" Inverse="RealEstates" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "RealEstate.IdHouseNavigation" Label="IdHouseNavigation (1)" Name="IdHouseNavigation" Category="Navigation Property" Type="House"  Field="" Dependent="" Principal="House" Inverse="RealEstates" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "RealEstate.IdLandNavigation" Label="IdLandNavigation (1)" Name="IdLandNavigation" Category="Navigation Property" Type="Land"  Field="" Dependent="" Principal="Land" Inverse="RealEstates" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "RealEstate.Supplies" Label="Supplies (*)" Name="Supplies" Category="Navigation Collection" Type="ICollection&lt;Supply&gt;"  Field="" Dependent="Supply" Principal="" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "RealEstate.AdressCity" Label="AdressCity (string)" Name="AdressCity" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: AddressCity" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RealEstate.AdressHouse" Label="AdressHouse (string)" Name="AdressHouse" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: AddressHouse" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RealEstate.AdressNumber" Label="AdressNumber (string)" Name="AdressNumber" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: AddressNumber" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RealEstate.AdressStreet" Label="AdressStreet (string)" Name="AdressStreet" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: AddressStreet" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RealEstate.CoordinateLatitude" Label="CoordinateLatitude (double?)" Name="CoordinateLatitude" Category="Property Optional" Type="double?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: Coordinate_latitude" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RealEstate.CoordinateLongitude" Label="CoordinateLongitude (double?)" Name="CoordinateLongitude" Category="Property Optional" Type="double?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: Coordinate_longitude" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RealEstate.IdApartment" Label="IdApartment (int?)" Name="IdApartment" Category="Property Foreign" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: IdApartament" IsPrimaryKey="False" IsForeignKey="True" IsRequired="False" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RealEstate.IdDistrict" Label="IdDistrict (int?)" Name="IdDistrict" Category="Property Foreign" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: IdDisctrict" IsPrimaryKey="False" IsForeignKey="True" IsRequired="False" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RealEstate.IdHouse" Label="IdHouse (int?)" Name="IdHouse" Category="Property Foreign" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: IdHouse" IsPrimaryKey="False" IsForeignKey="True" IsRequired="False" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RealEstate.IdLand" Label="IdLand (int?)" Name="IdLand" Category="Property Foreign" Type="int?" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnName: IdLand" IsPrimaryKey="False" IsForeignKey="True" IsRequired="False" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Supply" Label="Supply" Name="Supply" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="" Category="EntityType" Group="Expanded" />
+<Node Id = "Supply.IdSupply" Label="IdSupply (int)" Name="IdSupply" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Supply.Deals" Label="Deals (*)" Name="Deals" Category="Navigation Collection" Type="ICollection&lt;Deal&gt;"  Field="" Dependent="Deal" Principal="" Inverse="IdSupplyNavigation" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Supply.AgentIdAgent" Label="AgentIdAgent (int?)" Name="AgentIdAgent" Category="Property Foreign" Type="int?" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="False" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Supply.ClientIdClient" Label="ClientIdClient (int?)" Name="ClientIdClient" Category="Property Foreign" Type="int?" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="False" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Supply.IdAgent" Label="IdAgent (int)" Name="IdAgent" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Supply.IdClient" Label="IdClient (int)" Name="IdClient" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Supply.IdRealEstate" Label="IdRealEstate (int)" Name="IdRealEstate" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Supply.Price" Label="Price (int)" Name="Price" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Supply.RealEstateIdRealEstate" Label="RealEstateIdRealEstate (int?)" Name="RealEstateIdRealEstate" Category="Property Foreign" Type="int?" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="False" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+  </Nodes>
+  <Links>
+<Link Source = "IModel" Target="Agent" Category="Contains" />
+<Link Source = "IModel" Target="Apartment" Category="Contains" />
+<Link Source = "Agent" Target="Agent.Demands" Category="Contains" />
+<Link Source = "Agent" Target="Agent.Supplies" Category="Contains" />
+<Link Source = "Agent" Target="Agent.IdAgent" Category="Contains" />
+<Link Source = "Agent" Target="Agent.DealShare" Category="Contains" />
+<Link Source = "Agent" Target="Agent.FirstName" Category="Contains" />
+<Link Source = "Agent" Target="Agent.LastName" Category="Contains" />
+<Link Source = "Agent" Target="Agent.MiddleName" Category="Contains" />
+<Link Source = "IModel" Target="Client" Category="Contains" />
+<Link Source = "Apartment" Target="Apartment.RealEstates" Category="Contains" />
+<Link Source = "Apartment" Target="Apartment.IdApartment" Category="Contains" />
+<Link Source = "Apartment" Target="Apartment.Floors" Category="Contains" />
+<Link Source = "Apartment" Target="Apartment.Rooms" Category="Contains" />
+<Link Source = "Apartment" Target="Apartment.TotalArea" Category="Contains" />
+<Link Source = "IModel" Target="Deal" Category="Contains" />
+<Link Source = "Client" Target="Client.Demands" Category="Contains" />
+<Link Source = "Client" Target="Client.Supplies" Category="Contains" />
+<Link Source = "Client" Target="Client.IdClient" Category="Contains" />
+<Link Source = "Client" Target="Client.Email" Category="Contains" />
+<Link Source = "Client" Target="Client.FirstName" Category="Contains" />
+<Link Source = "Client" Target="Client.LastName" Category="Contains" />
+<Link Source = "Client" Target="Client.MiddleName" Category="Contains" />
+<Link Source = "Client" Target="Client.Phone" Category="Contains" />
+<Link Source = "IModel" Target="Demand" Category="Contains" />
+<Link Source = "Deal" Target="Deal.IdDemandNavigation" Category="Contains" />
+<Link Source = "Deal" Target="Deal.IdSupplyNavigation" Category="Contains" />
+<Link Source = "Deal" Target="Deal.Id_Deal" Category="Contains" />
+<Link Source="Deal" Target="Demand" From="Deal.IdDemand" To="Demand.IdDemand" Name="Deal -> Demand" Annotations="Relational:Name: FK_Deals_Demands" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="Deal" Target="Supply" From="Deal.IdSupply" To="Supply.IdSupply" Name="Deal -> Supply" Annotations="Relational:Name: FK_Deals_Supply" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "Deal" Target="Deal.IdDemand" Category="Contains" />
+<Link Source = "Deal" Target="Deal.IdSupply" Category="Contains" />
+<Link Source = "IModel" Target="DemandApartment" Category="Contains" />
+<Link Source = "Demand" Target="Demand.Deals" Category="Contains" />
+<Link Source = "Demand" Target="Demand.IdDemand" Category="Contains" />
+<Link Source="Demand" Target="Agent" From="Demand.AgentIdAgent" To="Agent.IdAgent" Name="Demand -> Agent" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="Demand" Target="Client" From="Demand.ClientIdClient" To="Client.IdClient" Name="Demand -> Client" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="Demand" Target="DemandApartment" From="Demand.DemandApartmentIdApartment" To="DemandApartment.IdApartment" Name="Demand -> DemandApartment" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="Demand" Target="DemandHouse" From="Demand.DemandHouseIdHouse" To="DemandHouse.IdHouse" Name="Demand -> DemandHouse" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="Demand" Target="DemandLand" From="Demand.DemandLandIdLand" To="DemandLand.IdLand" Name="Demand -> DemandLand" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "Demand" Target="Demand.Adress" Category="Contains" />
+<Link Source = "Demand" Target="Demand.AgentIdAgent" Category="Contains" />
+<Link Source = "Demand" Target="Demand.ClientIdClient" Category="Contains" />
+<Link Source = "Demand" Target="Demand.DemandApartmentIdApartment" Category="Contains" />
+<Link Source = "Demand" Target="Demand.DemandHouseIdHouse" Category="Contains" />
+<Link Source = "Demand" Target="Demand.DemandLandIdLand" Category="Contains" />
+<Link Source = "Demand" Target="Demand.IdAgent" Category="Contains" />
+<Link Source = "Demand" Target="Demand.IdApartament" Category="Contains" />
+<Link Source = "Demand" Target="Demand.IdClient" Category="Contains" />
+<Link Source = "Demand" Target="Demand.IdHouse" Category="Contains" />
+<Link Source = "Demand" Target="Demand.IdLand" Category="Contains" />
+<Link Source = "Demand" Target="Demand.MaxPrice" Category="Contains" />
+<Link Source = "Demand" Target="Demand.MinPrice" Category="Contains" />
+<Link Source = "Demand" Target="Demand.TypeRealEstate" Category="Contains" />
+<Link Source = "IModel" Target="DemandHouse" Category="Contains" />
+<Link Source = "DemandApartment" Target="DemandApartment.Demands" Category="Contains" />
+<Link Source = "DemandApartment" Target="DemandApartment.IdApartment" Category="Contains" />
+<Link Source = "DemandApartment" Target="DemandApartment.MaxArea" Category="Contains" />
+<Link Source = "DemandApartment" Target="DemandApartment.MaxFloor" Category="Contains" />
+<Link Source = "DemandApartment" Target="DemandApartment.MaxRooms" Category="Contains" />
+<Link Source = "DemandApartment" Target="DemandApartment.MinArea" Category="Contains" />
+<Link Source = "DemandApartment" Target="DemandApartment.MinFloor" Category="Contains" />
+<Link Source = "DemandApartment" Target="DemandApartment.MinRooms" Category="Contains" />
+<Link Source = "IModel" Target="DemandLand" Category="Contains" />
+<Link Source = "DemandHouse" Target="DemandHouse.Demands" Category="Contains" />
+<Link Source = "DemandHouse" Target="DemandHouse.IdHouse" Category="Contains" />
+<Link Source = "DemandHouse" Target="DemandHouse.MaxArea" Category="Contains" />
+<Link Source = "DemandHouse" Target="DemandHouse.MaxFloor" Category="Contains" />
+<Link Source = "DemandHouse" Target="DemandHouse.MaxRooms" Category="Contains" />
+<Link Source = "DemandHouse" Target="DemandHouse.MinArea" Category="Contains" />
+<Link Source = "DemandHouse" Target="DemandHouse.MinFloor" Category="Contains" />
+<Link Source = "DemandHouse" Target="DemandHouse.MinRooms" Category="Contains" />
+<Link Source = "IModel" Target="District" Category="Contains" />
+<Link Source = "DemandLand" Target="DemandLand.Demands" Category="Contains" />
+<Link Source = "DemandLand" Target="DemandLand.IdLand" Category="Contains" />
+<Link Source = "DemandLand" Target="DemandLand.MaxArea" Category="Contains" />
+<Link Source = "DemandLand" Target="DemandLand.MinArea" Category="Contains" />
+<Link Source = "IModel" Target="House" Category="Contains" />
+<Link Source = "District" Target="District.RealEstates" Category="Contains" />
+<Link Source = "District" Target="District.IdDistrict" Category="Contains" />
+<Link Source = "District" Target="District.Area" Category="Contains" />
+<Link Source = "District" Target="District.Names" Category="Contains" />
+<Link Source = "IModel" Target="Land" Category="Contains" />
+<Link Source = "House" Target="House.RealEstates" Category="Contains" />
+<Link Source = "House" Target="House.IdHouse" Category="Contains" />
+<Link Source = "House" Target="House.TotalArea" Category="Contains" />
+<Link Source = "House" Target="House.TotalFloor" Category="Contains" />
+<Link Source = "House" Target="House.TotalRooms" Category="Contains" />
+<Link Source = "IModel" Target="RealEstate" Category="Contains" />
+<Link Source = "Land" Target="Land.RealEstates" Category="Contains" />
+<Link Source = "Land" Target="Land.IdLand" Category="Contains" />
+<Link Source = "Land" Target="Land.TotalArea" Category="Contains" />
+<Link Source = "IModel" Target="Supply" Category="Contains" />
+<Link Source = "RealEstate" Target="RealEstate.IdApartmentNavigation" Category="Contains" />
+<Link Source = "RealEstate" Target="RealEstate.IdDistrictNavigation" Category="Contains" />
+<Link Source = "RealEstate" Target="RealEstate.IdHouseNavigation" Category="Contains" />
+<Link Source = "RealEstate" Target="RealEstate.IdLandNavigation" Category="Contains" />
+<Link Source = "RealEstate" Target="RealEstate.Supplies" Category="Contains" />
+<Link Source = "RealEstate" Target="RealEstate.IdRealEstate" Category="Contains" />
+<Link Source="RealEstate" Target="Apartment" From="RealEstate.IdApartment" To="Apartment.IdApartment" Name="RealEstate -> Apartment" Annotations="Relational:Name: FK_RealEstates_Apartments" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="RealEstate" Target="District" From="RealEstate.IdDistrict" To="District.IdDistrict" Name="RealEstate -> District" Annotations="Relational:Name: FK_RealEstates_Districts" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="RealEstate" Target="House" From="RealEstate.IdHouse" To="House.IdHouse" Name="RealEstate -> House" Annotations="Relational:Name: FK_RealEstates_Houses" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="RealEstate" Target="Land" From="RealEstate.IdLand" To="Land.IdLand" Name="RealEstate -> Land" Annotations="Relational:Name: FK_RealEstates_Lands" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "RealEstate" Target="RealEstate.AdressCity" Category="Contains" />
+<Link Source = "RealEstate" Target="RealEstate.AdressHouse" Category="Contains" />
+<Link Source = "RealEstate" Target="RealEstate.AdressNumber" Category="Contains" />
+<Link Source = "RealEstate" Target="RealEstate.AdressStreet" Category="Contains" />
+<Link Source = "RealEstate" Target="RealEstate.CoordinateLatitude" Category="Contains" />
+<Link Source = "RealEstate" Target="RealEstate.CoordinateLongitude" Category="Contains" />
+<Link Source = "RealEstate" Target="RealEstate.IdApartment" Category="Contains" />
+<Link Source = "RealEstate" Target="RealEstate.IdDistrict" Category="Contains" />
+<Link Source = "RealEstate" Target="RealEstate.IdHouse" Category="Contains" />
+<Link Source = "RealEstate" Target="RealEstate.IdLand" Category="Contains" />
+<Link Source = "IModel" Target="Supply" Category="Contains" />
+<Link Source = "Supply" Target="Supply.Deals" Category="Contains" />
+<Link Source = "Supply" Target="Supply.IdSupply" Category="Contains" />
+<Link Source="Supply" Target="Agent" From="Supply.AgentIdAgent" To="Agent.IdAgent" Name="Supply -> Agent" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="Supply" Target="Client" From="Supply.ClientIdClient" To="Client.IdClient" Name="Supply -> Client" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="Supply" Target="RealEstate" From="Supply.RealEstateIdRealEstate" To="RealEstate.IdRealEstate" Name="Supply -> RealEstate" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "Supply" Target="Supply.AgentIdAgent" Category="Contains" />
+<Link Source = "Supply" Target="Supply.ClientIdClient" Category="Contains" />
+<Link Source = "Supply" Target="Supply.IdAgent" Category="Contains" />
+<Link Source = "Supply" Target="Supply.IdClient" Category="Contains" />
+<Link Source = "Supply" Target="Supply.IdRealEstate" Category="Contains" />
+<Link Source = "Supply" Target="Supply.Price" Category="Contains" />
+<Link Source = "Supply" Target="Supply.RealEstateIdRealEstate" Category="Contains" />
+  </Links>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="EntityType" ValueLabel="True">
+      <Condition Expression="HasCategory('EntityType')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Required" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Required')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Navigation Property" ValueLabel="True">
+      <Condition Expression="HasCategory('Navigation Property')" />
+      <Setter Property="Background" Value="#FF990000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Navigation Collection" ValueLabel="True">
+      <Condition Expression="HasCategory('Navigation Collection')" />
+      <Setter Property="Background" Value="#FFFF3232" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Model" ValueLabel="True">
+      <Condition Expression="HasCategory('Model')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+  </Styles>
+  <Properties>
+    <Property Id="Name" Group="Model Properties" DataType="System.String" />
+    <Property Id="Field"  Description="Backing field" Group="Model Properties" DataType="System.String" />
+    <Property Id="Type"  Description="CLR data type" Group="Model Properties" DataType="System.String" />
+    <Property Id="To" Description="Source property" Group="Model Properties" DataType="System.String" />
+    <Property Id="From" Description="Target property" Group="Model Properties" DataType="System.String" />
+    <Property Id="Dependent" Description="Dependent entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="Inverse" Description="Inverse entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="Principal" Description="Principal entity" Group="Model Properties" DataType="System.String" />    
+    <Property Id="Annotations" Description="Annotations" Group="Model Properties" DataType="System.String" />
+    <Property Id="BaseClass"  Description="Base class" Group="Model Properties" DataType="System.String" />
+    <Property Id="ChangeTrackingStrategy" Description="Change tracking strategy" Group="Model Properties" DataType="System.String" />
+    <Property Id="IsUnique" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="IsAbstract" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="ProductVersion" Label="Product Version" Description="EF Core product version" Group="Model Properties" DataType="System.String" />
+    <Property Id="IsIndexed" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsRequired" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsPrimaryKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsForeignKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsShadow" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsAlternateKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsConcurrencyToken" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsIndexed" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsUnicode" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="ValueGenerated" Group="Property Flags" DataType="System.String" />
+    <Property Id="BeforeSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="AfterSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="PropertyAccessMode" Group="Property Flags" DataType="System.String" />
+  </Properties>
+</DirectedGraph>

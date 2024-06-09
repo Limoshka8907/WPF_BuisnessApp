@@ -36,4 +36,7 @@ public partial class Demand
     public virtual DemandLand? IdLandNavigation { get; set; }
 
     public virtual ICollection<Supply> IdSupplies { get; set; } = new List<Supply>();
+    public virtual ICollection<Deal> Deals { get; set; } = new List<Deal>();
+
+
 }

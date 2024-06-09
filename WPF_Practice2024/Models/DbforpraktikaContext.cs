@@ -38,6 +38,7 @@ public partial class DbforpraktikaContext : DbContext
     public virtual DbSet<RealEstate> RealEstates { get; set; }
 
     public virtual DbSet<Supply> Supplies { get; set; }
+    public virtual DbSet<Deal> Deals{ get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -226,28 +227,61 @@ public partial class DbforpraktikaContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Supply_RealEstates");
 
-            entity.HasMany(d => d.IdDemands).WithMany(p => p.IdSupplies)
-                .UsingEntity<Dictionary<string, object>>(
-                    "Deal",
-                    r => r.HasOne<Demand>().WithMany()
-                        .HasForeignKey("IdDemand")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Deals_Demands"),
-                    l => l.HasOne<Supply>().WithMany()
-                        .HasForeignKey("IdSupply")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Deals_Supply"),
-                    j =>
-                    {
-                        j.HasKey("IdSupply", "IdDemand");
-                        j.ToTable("Deals");
-                        j.IndexerProperty<int>("IdSupply").HasColumnName("Id_Supply");
-                        j.IndexerProperty<int>("IdDemand").HasColumnName("Id_Demand");
-                    });
+            //entity.HasMany(d => d.IdDemands).WithMany(p => p.IdSupplies)
+            //    .UsingEntity<Dictionary<string, object>>(
+            //        "Deal",
+            //        r => r.HasOne<Demand>().WithMany()
+            //            .HasForeignKey("IdDemand")
+            //            .OnDelete(DeleteBehavior.ClientSetNull)
+            //            .HasConstraintName("FK_Deals_Demands"),
+            //        l => l.HasOne<Supply>().WithMany()
+            //            .HasForeignKey("IdSupply")
+            //            .OnDelete(DeleteBehavior.ClientSetNull)
+            //            .HasConstraintName("FK_Deals_Supply"),
+            //        j =>
+            //        {
+            //            j.HasKey("IdSupply", "IdDemand");
+            //            j.ToTable("Deals");
+            //            j.IndexerProperty<int>("IdSupply").HasColumnName("Id_Supply");
+            //            j.IndexerProperty<int>("IdDemand").HasColumnName("Id_Demand");
+            //        });
         });
+        modelBuilder.Entity<Deal>(entity =>
+        {
+            entity.HasKey(e => new { e.Id_Supply, e.Id_Demand }); // Укажите составной ключ
+
+            entity.Property(e => e.Id_Supply)
+                .HasColumnName("Id_Supply");
+
+            entity.Property(e => e.Id_Demand)
+                .HasColumnName("Id_Demand");
+
+            // Добавьте связи, если нужно:
+            entity.HasOne(d => d.Id_DemandNavigation)
+                .WithMany(p => p.Deals)
+                .HasForeignKey(d => d.Id_Demand)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_Deals_Demands");
+
+            entity.HasOne(d => d.Id_SupplyNavigation)
+                .WithMany(p => p.Deals)
+                .HasForeignKey(d => d.Id_Supply)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_Deals_Supply");
+        });
+
 
         OnModelCreatingPartial(modelBuilder);
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+}
+public class Deal
+{
+    public int Id_Supply { get; set; }
+    public int Id_Demand { get; set; }
+
+    // Добавьте навигационные свойства, если нужно:
+    public virtual Demand Id_DemandNavigation { get; set; }
+    public virtual Supply Id_SupplyNavigation { get; set; }
 }

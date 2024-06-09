@@ -42,16 +42,35 @@
                 </Grid.RowDefinitions>
                 <DataGrid MinHeight="225" Grid.Row="0" x:Name="dataGrid1" Loaded="dataGrid_Loaded" SelectionChanged="dataGrid1_SelectionChanged" >
                 </DataGrid>
-                <DataGrid MinHeight="225" Grid.Row="1" x:Name="dataGrid2" Loaded="dataGrid_Loaded" SelectionChanged="dataGrid1_SelectionChanged"/>
+                <DataGrid MinHeight="225" Grid.Row="1" x:Name="dataGrid2" Loaded="dataGrid_Loaded" SelectionChanged="dataGrid1_SelectionChanged" CellEditEnding="dataGrid2_CellEditEnding"/>
             </Grid>
         </StackPanel>
         <StackPanel VerticalAlignment="Center" Grid.Column="1">
-            <TextBox Margin="10" TextChanged="TextBox_TextChanged" AutomationProperties.HelpText="Поиск..." LostFocus="TextBox_LostFocus"></TextBox>
+            <!--<TextBox Margin="10" TextChanged="TextBox_TextChanged" AutomationProperties.HelpText="Поиск..." LostFocus="TextBox_LostFocus"></TextBox>-->
             <Button Margin="10" Content="Сохранить" Click="saveData"></Button>
             <Button Margin="10" Content="Удалить" Click="deleteData"></Button>
             <StackPanel Margin="10">
-                <ComboBox Margin="0,5,0,0"></ComboBox>
-                <ComboBox Margin="0,5,0,0"></ComboBox>
+                <RadioButton Foreground="White" Content="Добавить предложение" Checked="RadioButton_Checked"></RadioButton>
+                <RadioButton Foreground="White" Content="Добавить сделку" Checked="RadioButton_Checked_1"></RadioButton>
+            </StackPanel>
+            <StackPanel x:Name="addDealPanel" Margin="10" Visibility="Hidden">
+                <Label Foreground="White" Content="Предложение:"></Label>
+                <ComboBox x:Name="com1" Margin="0,5,0,0"></ComboBox>
+                <Label Foreground="White" Content="Недвижимость:"></Label>
+                <ComboBox x:Name="com2" Margin="0,5,0,0"></ComboBox>
+                <Button Content="Совершить сделку" Height="25" Margin="0,5,0,0" Click="doDeal"></Button>
+            </StackPanel>
+            <StackPanel x:Name="addSupplyPanel" Margin="10" Visibility="Hidden">
+                <Label Foreground="White" Content="Добавление потребности" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Bahnschrift SemiBold"/>
+                <Label Content="Агенты:" Foreground="White"></Label>
+                <ComboBox x:Name="com1_1" Margin="0,5,0,0"></ComboBox>
+                <Label Content="Клиенты:" Foreground="White"></Label>
+                <ComboBox x:Name="com1_2" Margin="0,5,0,0"></ComboBox>
+                <Label Content="Недвижимость:" Foreground="White"></Label>
+                <ComboBox x:Name="com1_3" Margin="0,5,0,0" ></ComboBox>
+                <Label Content="Цена:" Foreground="White"></Label>
+                <TextBox x:Name="priceBox"></TextBox>
+                <Button Margin="0,5,0,0" Height="35" Content="Добавить предложение" Click="addSupply"></Button>
             </StackPanel>
         </StackPanel>
     </Grid>

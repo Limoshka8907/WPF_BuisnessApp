@@ -68,4 +68,7 @@ namespace WPF_Practice2024.Models
     {
 
     }
+    public class SupplyViewModel : ViewModelBase
+    {
+    }
 }

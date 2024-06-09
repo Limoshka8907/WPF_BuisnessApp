@@ -71,6 +71,7 @@ namespace WPF_Practice2024.Models
         public ICommand ShowRealEstateViewCommand { get; }
         public ICommand ShowRealtyViewCommand { get; }
         public ICommand ShowDemandsViewCommand { get; }
+        public ICommand ShowSupplyViewCommand { get; }
 
 
         public MainViewModel()
@@ -85,6 +86,7 @@ namespace WPF_Practice2024.Models
             ShowRealEstateViewCommand = new ViewModelCommand(ExecuteShowRealEstateCommand);
             ShowRealtyViewCommand = new ViewModelCommand(ExecuteShowRealtyViewCommand);
             ShowDemandsViewCommand = new ViewModelCommand(ExecuteShowDemandsViewCommand);
+            ShowSupplyViewCommand = new ViewModelCommand(ExecuteShowSupplyViewCommand);
             //Default view
             ExecuteShowHomeViewCommand(null);
 
@@ -127,6 +129,12 @@ namespace WPF_Practice2024.Models
             CurrentChildView = new DemandsViewModel();
             Caption = "Demands";
             Icon = IconChar.HandHolding;
+        }
+        private void ExecuteShowSupplyViewCommand(object obj)
+        {
+            CurrentChildView = new SupplyViewModel();
+            Caption = "Supplies";
+            Icon = IconChar.Dollar;
         }
     }
 }

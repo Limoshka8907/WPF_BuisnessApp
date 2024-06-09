@@ -36,6 +36,9 @@
             <local:DemandsView>
             </local:DemandsView>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:SupplyViewModel}">
+            <local:SupplyView></local:SupplyView>
+        </DataTemplate>
     </Window.Resources>
     <Border CornerRadius="10"                    
             BorderThickness="1">
@@ -128,6 +131,14 @@
                             <fa:IconImage Icon="HandHolding" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Demands" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                     Tag="{StaticResource color8}"
+                     Command="{Binding ShowSupplyViewCommand}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <fa:IconImage Icon="Dollar" Style="{StaticResource menuButtonIcon}"/>
+                                        <TextBlock Text="Supplies" Style="{StaticResource menuButtonText}"/>
+                                    </StackPanel>           
                     </RadioButton>
                 </StackPanel>
             </Border>

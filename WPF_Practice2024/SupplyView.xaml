@@ -61,7 +61,7 @@
                 <Button Content="Совершить сделку" Height="25" Margin="0,5,0,0" Click="doDeal"></Button>
             </StackPanel>
             <StackPanel x:Name="addSupplyPanel" Margin="10" Visibility="Hidden">
-                <Label Foreground="White" Content="Добавление потребности" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Bahnschrift SemiBold"/>
+                <Label Foreground="White" Content="Добавление предложения" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Bahnschrift SemiBold"/>
                 <Label Content="Агенты:" Foreground="White"></Label>
                 <ComboBox x:Name="com1_1" Margin="0,5,0,0"></ComboBox>
                 <Label Content="Клиенты:" Foreground="White"></Label>

@@ -202,21 +202,31 @@ namespace WPF_Practice2024
             {
                 dbforpraktikaContext = new DbforpraktikaContext();
                 int plusPrice = 0;
-
+                int agId = int.Parse(com1_1.SelectedItem.ToString().Split(' ')[0]);
+                var agent = dbforpraktikaContext.Agents.Where(a=>a.IdAgent == agId).FirstOrDefault();
                 int realEstate = int.Parse(com1_3.SelectedItem.ToString().Split(' ')[0]);
                 foreach (var i in dbforpraktikaContext.RealEstates.Where(x => x.IdRealEstate == realEstate))
                 {
-                    if (i.IdHouse != null)
+                    if(agent.DealShare == null)
                     {
-                        plusPrice = 30000 + int.Parse(priceBox.Text) / 100;
+                        agent.DealShare = 45;
                     }
-                    else if (i.IdApartment != null)
+                    if(agent.DealShare != null)
                     {
-                        plusPrice = 36000 + int.Parse(priceBox.Text) / 100;
-                    }
-                    else if (i.IdLand != null)
-                    {
-                        plusPrice = 30000 + int.Parse(priceBox.Text) / 100 * 2;
+                        
+                        if (i.IdHouse != null)
+                        {
+                            plusPrice = 30000 + int.Parse(priceBox.Text) / 100 + int.Parse(priceBox.Text) / 100 * (int)agent.DealShare;
+                        }
+                        else if (i.IdApartment != null)
+                        {
+                        
+                            plusPrice = 36000 + int.Parse(priceBox.Text) / 100 + int.Parse(priceBox.Text) / 100 * (int)agent.DealShare;
+                        }
+                        else if (i.IdLand != null)
+                        {
+                            plusPrice = 30000 + int.Parse(priceBox.Text) / 100 * 2 + int.Parse(priceBox.Text) / 100 * (int)agent.DealShare;
+                        }
                     }
                 }
 

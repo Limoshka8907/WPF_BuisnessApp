@@ -102,22 +102,34 @@ namespace WPF_Practice2024
 
         private void dataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try
+            {
+
             lstbox1.Items.Clear();
             lstbox2.Items.Clear();
-            if (dataGrid1.SelectedItem != null)
-            {
-                var agent = dataGrid1.SelectedItem as Agent;
-                dbforpraktikaContext = new DbforpraktikaContext();
-                foreach (var a in dbforpraktikaContext.Demands.Where(a => a.IdAgent == agent.IdAgent).ToList())
+                if (dataGrid1.SelectedItem != dataGrid1.Items.GetItemAt(dataGrid1.Items.Count - 1))
                 {
-                    lstbox1.Items.Add($"Id потребности {a.IdDemand} Клиент#{a.IdClient} Адрес:{a.Adress}");
-                }
-                foreach (var a in dbforpraktikaContext.Supplies.Where(a => a.IdAgent == agent.IdAgent).ToList())
-                {
-                    lstbox2.Items.Add($"Id предложения {a.IdSupply} Клиент#{a.IdClient} Цена:{a.Price}");
-                }
-            }
 
+                    if (dataGrid1.SelectedItem != null)
+                    {
+                        var agent = dataGrid1.SelectedItem as Agent;
+                        dbforpraktikaContext = new DbforpraktikaContext();
+                        foreach (var a in dbforpraktikaContext.Demands.Where(a => a.IdAgent == agent.IdAgent).ToList())
+                        {
+                            lstbox1.Items.Add($"Id потребности {a.IdDemand} Клиент#{a.IdClient} Адрес:{a.Adress}");
+                        }
+                        foreach (var a in dbforpraktikaContext.Supplies.Where(a => a.IdAgent == agent.IdAgent).ToList())
+                        {
+                            lstbox2.Items.Add($"Id предложения {a.IdSupply} Клиент#{a.IdClient} Цена:{a.Price}");
+                        }
+                    } 
+                }
+
+            }
+            catch
+            {
+
+            }
 
         }
     }

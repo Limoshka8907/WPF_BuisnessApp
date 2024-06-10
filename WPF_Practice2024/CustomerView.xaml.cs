@@ -97,18 +97,21 @@ namespace WPF_Practice2024
         {
             lstbox1.Items.Clear();
             lstbox2.Items.Clear();
-            if (dataGrid1.SelectedItem != null)
+            if (dataGrid1.SelectedItem != dataGrid1.Items.GetItemAt(dataGrid1.Items.Count - 1))
             {
+                if (dataGrid1.SelectedItem != null)
+                {
 
-                var client = dataGrid1.SelectedItem as Client;
-                dbforpraktikaContext = new DbforpraktikaContext();
-                foreach (var a in dbforpraktikaContext.Demands.Where(a => a.IdClient == client.IdClient).ToList())
-                {
-                    lstbox1.Items.Add($"Id потребности {a.IdDemand} Агент#{a.IdAgent} Адрес:{a.Adress}");
-                }
-                foreach (var a in dbforpraktikaContext.Supplies.Where(a => a.IdClient == client.IdClient).ToList())
-                {
-                    lstbox2.Items.Add($"Id предложения {a.IdSupply} Агент#{a.IdAgent} Цена:{a.Price}");
+                    var client = dataGrid1.SelectedItem as Client;
+                    dbforpraktikaContext = new DbforpraktikaContext();
+                    foreach (var a in dbforpraktikaContext.Demands.Where(a => a.IdClient == client.IdClient).ToList())
+                    {
+                        lstbox1.Items.Add($"Id потребности {a.IdDemand} Агент#{a.IdAgent} Адрес:{a.Adress}");
+                    }
+                    foreach (var a in dbforpraktikaContext.Supplies.Where(a => a.IdClient == client.IdClient).ToList())
+                    {
+                        lstbox2.Items.Add($"Id предложения {a.IdSupply} Агент#{a.IdAgent} Цена:{a.Price}");
+                    }
                 }
             }
 
